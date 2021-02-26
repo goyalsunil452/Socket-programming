@@ -1,1 +1,12 @@
+import socket
 
+# create socket for client
+c = socket.socket()
+
+# server will bind socket to client so
+# client is use connect to connect with server
+# in connect pass one argument in two things 1. ip add and 2. port no
+c.connect(('localhost', 9999))
+
+# to receive from server in recv(buffer size) and decode
+print(c.recv(1021).decode())
