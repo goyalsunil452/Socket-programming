@@ -7,6 +7,7 @@ c = socket.socket()
 # client is use connect to connect with server
 # in connect pass one argument in two things 1. ip add and 2. port no
 c.connect(('localhost', 9999))
-
+name = input('enter your name')
+c.send(bytes(name,'utf-8'))
 # to receive from server in recv(buffer size) and decode
 print(c.recv(1021).decode())
