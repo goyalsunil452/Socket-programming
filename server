@@ -1,1 +1,28 @@
+import socket
 
+# pass two arguments 1.ip address by default ipv4 and 2. TCP/UDP by default TCP
+s = socket.socket()
+
+print('socket created')
+# Now we got socket so next is use this socket as server socket
+# so it will accept the connections
+# foe that we need to bind socket with a port number
+# in bind you have to pass one arguments of two combine  argument
+# 1.ip address by default ipv4 and 2. port Number range(0 ,65535 )
+s.bind(('localhost', 9999))
+# for start listing to the client , and pass no of client you want listen
+s.listen(3)
+print('waiting for connection')
+
+# to process the request continuously use while loop
+
+while True:
+    c, add = s.accept()
+    # it will give you two things client socket and client ip address
+    # to accept connection  from client
+    # now what you want to return to client
+    print('connected with ', add)
+    # send something to client
+    c.send('welcome to Sunil server')
+    c.close()
+    # always  close the resources
