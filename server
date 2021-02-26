@@ -21,7 +21,8 @@ while True:
     # it will give you two things client socket and client ip address
     # to accept connection  from client
     # now what you want to return to client
-    print('connected with ', add)
+    name = c.recv(1024).decode()
+    print('connected with ', add, name)
     # send something to client
     # send data in byte and then in format utf-8
     c.send(bytes('welcome to Sunil server', 'utf-8'))
